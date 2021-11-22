@@ -134,7 +134,7 @@ jobs:
           key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
 #           source: "build/libs/tg-bot-all.jar"
           source: "."
-          target: "app"
+          target: "/home/git886/app"
           rm: true
           strip_components: 2
           
