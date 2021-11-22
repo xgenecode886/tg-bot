@@ -137,7 +137,7 @@ jobs:
           username: git886
           key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
           source: "deploy.tar"
-          target: "app"
+          target: "/home/git886/app"
           rm: true
           strip_components: 2
 #         source: "build/libs/tg-bot-all.jar"
