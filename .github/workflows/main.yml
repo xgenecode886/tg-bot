@@ -124,6 +124,7 @@ jobs:
               kill -9 $pid
             fi
             sudo mkdir -p /app
+            
       - name: 'Push JAR'
         uses: appleboy/scp-action@master
         with:
