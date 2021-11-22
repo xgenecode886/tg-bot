@@ -35,7 +35,7 @@ jobs:
       - name: 'Assemble JAR'
         run: |
           chmod +x gradlew
-          ./gradlew assemble
+          ./gradlew bootJar
       - name: 'Get Version Number'
         run: |
           echo "VERSION=$(./gradlew properties -q | grep "version:" | awk '{print $2}')" >> $GITHUB_ENV
