@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v2-preview
         with:
           name: 'tg-bot-all.jar'
-          path: build/libs/*-all.jar
+          path: build/libs/*.jar
 
       - name: 'Write Config & Key Files'
         run: |
