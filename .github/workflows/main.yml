@@ -110,20 +110,20 @@ jobs:
                   sleep 5
                   echo "SSH not available..."
           done; echo "SSH ready!"
-      - name: 'Stop App'
-        uses: appleboy/ssh-action@master
-        with:
-          host: 158.101.157.153
-          username: git886
-          key: ${{secrets.VM_SSH_PRIVATE_KEY}}
-          script: |
-            pid=`ps aux | grep "[t]g-bot.jar" | awk '{print $2}'`
-            if [ "$pid" == "" ]; then
-              echo "Process not found"
-            else
-              kill -9 $pid
-            fi
-            sudo mkdir -p /app
+#       - name: 'Stop App'
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: 158.101.157.153
+#           username: git886
+#           key: ${{secrets.VM_SSH_PRIVATE_KEY}}
+#           script: |
+#             pid=`ps aux | grep "[t]g-bot.jar" | awk '{print $2}'`
+#             if [ "$pid" == "" ]; then
+#               echo "Process not found"
+#             else
+#               kill -9 $pid
+#             fi
+#             sudo mkdir -p /app
             
       - name: 'Push JAR'
         uses: appleboy/scp-action@master
