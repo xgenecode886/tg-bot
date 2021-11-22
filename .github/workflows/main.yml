@@ -133,7 +133,6 @@ jobs:
           source: "build/libs/tg-bot-${{secrets.env.VERSION}}-all.jar"
           target: "app"
           strip_components: 2
-
       - name: 'Start App'
         uses: appleboy/ssh-action@master
         with:
