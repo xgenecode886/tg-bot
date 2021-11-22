@@ -32,16 +32,16 @@ jobs:
 #           name: 'test-report'
 #           path: build/reports/tests/test/*
 
-#       - name: 'Assemble JAR'
-#         run: |
-#           ./gradlew assemble
+      - name: 'Assemble JAR'
+        run: |
+          ./gradlew assemble
       - name: 'Get Version Number'
         run: |
           echo "VERSION=$(./gradlew properties -q | grep "version:" | awk '{print $2}')" >> $GITHUB_ENV
       - name: 'Publish JAR'
         uses: actions/upload-artifact@v2-preview
         with:
-          name: 'tg-bot-${{secrets.env.VERSION}}-all.jar'
+          name: 'tg-bot-all.jar'
           path: build/libs/*-all.jar
 
       - name: 'Write Config & Key Files'
@@ -131,7 +131,7 @@ jobs:
           host: 158.101.157.153
           username: git886
           key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
-          source: "build/libs/tg-bot-${{secrets.env.VERSION}}-all.jar"
+          source: "build/libs/tg-bot-all.jar"
           target: "app"
           strip_components: 2
           
@@ -142,5 +142,5 @@ jobs:
           username: git886
           key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
           script: |
-            sudo mv ~/app/tg-bot-${{secrets.env.VERSION}}-all.jar /app/tg-bot.jar
+            sudo mv ~/app/tg-bot-all.jar /app/tg-bot.jar
             nohup java -jar /app/tg-bot.jar > output.$(date --iso).log 2>&1 &
