@@ -137,7 +137,6 @@ jobs:
           rm: true
           strip_components: 2
 #         source: "build/libs/tg-bot-all.jar"
-          
       - name: 'Start App'
         uses: appleboy/ssh-action@master
         with:
